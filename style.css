@@ -1,0 +1,2861 @@
+/* =====================
+   GLOBAL
+===================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+    linear-gradient(
+        135deg,
+        #f5f7fa,
+        #e4ecff
+    );
+}
+/* =====================
+   NAVBAR
+===================== */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 8%;
+    background:#001f54;
+}
+
+.logo img{
+    width:70px;
+    border-radius:50%;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links a{
+    position:relative;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#ffd700;
+    transition:.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/* =====================
+   HERO
+===================== */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.6),
+        rgba(0,0,0,.6)
+    ),
+    url("images/stadium.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    color:white;
+    padding:20px;
+}
+
+.hero-logo{
+    width:120px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.hero p{
+    font-size:1.2rem;
+}
+
+.hero-stats{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+    margin:35px 0;
+}
+
+.stat{
+    background:rgba(255,255,255,.1);
+    padding:20px;
+    border-radius:10px;
+    backdrop-filter:blur(5px);
+}
+
+.hero-btn{
+    text-decoration:none;
+    background:#ffd700;
+    color:black;
+    padding:12px 30px;
+    border-radius:30px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    background:white;
+}
+
+/* =====================
+   SECTION TITLE
+===================== */
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:2.2rem;
+    color:#001f54;
+}
+
+/* =====================
+   ABOUT
+===================== */
+
+.about{
+    display:flex;
+    align-items:center;
+    gap:50px;
+    padding:80px 8%;
+}
+
+.about-image img{
+    width:100%;
+    max-width:450px;
+    border-radius:15px;
+}
+
+.about-content h2{
+    margin-bottom:20px;
+    color:#001f54;
+}
+
+/* =====================
+   HIGHLIGHTS
+===================== */
+
+.highlights{
+    padding:80px 8%;
+    background:white;
+}
+
+.highlight-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.highlight-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.highlight-card:hover{
+    transform:translateY(-10px);
+}
+
+.highlight-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.highlight-card h3,
+.highlight-card h4{
+    padding:10px;
+}
+
+/* =====================
+   SCHEDULE
+===================== */
+
+.schedule{
+    padding:80px 8%;
+}
+
+.schedule-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.match-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.match-card:hover{
+    transform:scale(1.05);
+}
+
+.match-card h3{
+    color:#001f54;
+}
+
+/* =====================
+   TEAMS
+===================== */
+
+.teams{
+    padding:80px 8%;
+    background:white;
+}
+
+.teams-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.team-card{
+    text-decoration:none;
+    color:black;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+    transition:.3s;
+}
+
+.team-card:hover{
+    transform:translateY(-10px);
+}
+
+.team-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.team-card h3{
+    padding:15px;
+    text-align:center;
+}
+
+/* =====================
+   FOOTER
+===================== */
+
+footer{
+    background:#001f54;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+footer h3{
+    margin-bottom:10px;
+}
+
+/* =====================
+   MOBILE
+===================== */
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:2rem;
+    }
+
+    .hero-stats{
+        flex-direction:column;
+    }
+
+    .about{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+/* =========================
+   GLOBAL RESET (CSK STYLE BASE)
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body.csk-body{
+    background:#fffdf2;
+    color:#222;
+    line-height:1.6;
+}
+
+/* =========================
+   HERO SECTION (CSK THEME)
+========================= */
+
+.csk-hero{
+    background:linear-gradient(135deg,#FFD700,#0057B8);
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+}
+
+.csk-hero h1{
+    font-size:3rem;
+    margin-top:15px;
+    color:white;
+}
+
+.csk-hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.main-logo{
+    width:180px;
+    border-radius:12px;
+}
+
+/* =========================
+   TEAM IMAGE
+========================= */
+
+.team-image-section{
+    width:85%;
+    margin:30px auto;
+}
+
+.team-photo{
+    width:100%;
+    max-height:450px;
+    object-fit:contain;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.content-box{
+    background:white;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    width:85%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #FFD700;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,h2{
+    color:#0057B8;
+}
+
+h2{
+    position:relative;
+    margin-bottom:15px;
+}
+
+h2::after{
+    content:"";
+    width:60px;
+    height:4px;
+    background:#FFD700;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    border-radius:5px;
+}
+
+/* =========================
+   CAPTAIN IMAGE
+========================= */
+
+.captain-img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin-top:10px;
+}
+
+/* =========================
+   TROPHY GRID
+========================= */
+
+.trophy-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.trophy-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.trophy-card:hover{
+    transform:translateY(-10px);
+}
+
+.trophy-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.trophy-card h3{
+    color:#0057B8;
+    padding:10px;
+}
+
+/* =========================
+   PLAYERS GRID
+========================= */
+
+.players-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.player-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    border-bottom:4px solid #FFD700;
+}
+
+.player-card:hover{
+    transform:translateY(-10px);
+}
+
+.player-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:top;
+}
+
+.player-card h3{
+    margin-top:10px;
+    color:#0057B8;
+}
+
+.player-card p{
+    color:#555;
+    padding-bottom:15px;
+}
+
+/* =========================
+   RECORDS GRID
+========================= */
+
+.records-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.record-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.record-card:hover{
+    transform:translateY(-5px);
+}
+
+.record-card h3{
+    color:#0057B8;
+    margin-bottom:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#0057B8;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+.footer h2{
+    color:#FFD700;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .csk-hero h1{
+        font-size:2rem;
+    }
+
+    .content-box{
+        width:92%;
+    }
+
+    .captain-img{
+        width:100%;
+        max-width:300px;
+    }
+
+    .team-image-section{
+        width:92%;
+    }
+}
+/* =========================
+   GLOBAL RESET (MI THEME)
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body.mi-body{
+    background:#f4f8ff;
+    color:#222;
+    line-height:1.6;
+}
+
+/* =========================
+   HERO SECTION (MI THEME)
+========================= */
+
+.mi-hero{
+    background:linear-gradient(135deg,#004BA0,#00AEEF);
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+}
+
+.mi-hero h1{
+    font-size:3rem;
+    margin-top:15px;
+    color:#FFD700;
+}
+
+.mi-hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.main-logo{
+    width:180px;
+    border-radius:12px;
+}
+
+/* =========================
+   TEAM IMAGE
+========================= */
+
+.team-image-section{
+    width:85%;
+    margin:30px auto;
+}
+
+.team-photo{
+    width:100%;
+    max-height:450px;
+    object-fit:contain;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   COMMON CONTENT BOX
+========================= */
+
+.content-box{
+    background:white;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    width:85%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #004BA0;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,h2{
+    color:#004BA0;
+}
+
+h2{
+    position:relative;
+    margin-bottom:15px;
+}
+
+h2::after{
+    content:"";
+    width:60px;
+    height:4px;
+    background:#00AEEF;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    border-radius:5px;
+}
+
+/* =========================
+   CAPTAIN IMAGE
+========================= */
+
+.captain-img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin-top:10px;
+}
+
+/* =========================
+   TROPHY GRID
+========================= */
+
+.trophy-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.trophy-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.trophy-card:hover{
+    transform:translateY(-10px);
+}
+
+.trophy-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.trophy-card h3{
+    color:#004BA0;
+    padding:10px;
+}
+
+/* =========================
+   PLAYERS GRID
+========================= */
+
+.players-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.player-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    border-bottom:4px solid #00AEEF;
+}
+
+.player-card:hover{
+    transform:translateY(-10px);
+}
+
+.player-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:top;
+}
+
+.player-card h3{
+    margin-top:10px;
+    color:#004BA0;
+}
+
+.player-card p{
+    color:#555;
+    padding-bottom:15px;
+}
+
+/* =========================
+   RECORDS GRID
+========================= */
+
+.records-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.record-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.record-card:hover{
+    transform:translateY(-5px);
+}
+
+.record-card h3{
+    color:#004BA0;
+    margin-bottom:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#004BA0;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+.footer h2{
+    color:#FFD700;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .mi-hero h1{
+        font-size:2rem;
+    }
+
+    .content-box{
+        width:92%;
+    }
+
+    .captain-img{
+        width:100%;
+        max-width:300px;
+    }
+
+    .team-image-section{
+        width:92%;
+    }
+}
+
+/* =========================
+   GLOBAL RESET (KKR STYLE BASE)
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body.kkr-body{
+    background:#faf7ff;
+    color:#222;
+    line-height:1.6;
+}
+
+/* =========================
+   HERO SECTION (KKR THEME)
+========================= */
+
+.kkr-hero{
+    background:linear-gradient(135deg,#2e0854,#4b0082);
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+}
+
+.kkr-hero h1{
+    font-size:3rem;
+    margin-top:15px;
+    color:#d4af37; /* KKR Gold */
+}
+
+.kkr-hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.main-logo{
+    width:180px;
+    border-radius:12px;
+}
+
+/* =========================
+   TEAM IMAGE
+========================= */
+
+.team-photo{
+    width:100%;
+    max-height:450px;
+    object-fit:contain;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.content-box{
+    background:white;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    width:85%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #4b0082;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,h2{
+    color:#4b0082;
+}
+
+h2{
+    position:relative;
+    margin-bottom:15px;
+}
+
+h2::after{
+    content:"";
+    width:60px;
+    height:4px;
+    background:#d4af37;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    border-radius:5px;
+}
+
+/* =========================
+   CAPTAIN IMAGE
+========================= */
+
+.captain-img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin-top:10px;
+}
+
+/* =========================
+   TROPHY GRID
+========================= */
+
+.trophy-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.trophy-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.trophy-card:hover{
+    transform:translateY(-10px);
+}
+
+.trophy-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.trophy-card h3{
+    color:#4b0082;
+}
+
+/* =========================
+   PLAYERS GRID
+========================= */
+
+.players-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.player-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    border-bottom:4px solid #4b0082;
+}
+
+.player-card:hover{
+    transform:translateY(-10px);
+}
+
+.player-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:top;
+}
+
+.player-card h3{
+    margin-top:10px;
+    color:#4b0082;
+}
+
+.player-card p{
+    color:#555;
+    padding-bottom:15px;
+}
+
+/* =========================
+   RECORDS SECTION
+========================= */
+
+.records-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.record-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.record-card h3{
+    color:#4b0082;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#2e0854;
+    color:#d4af37;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .kkr-hero h1{
+        font-size:2rem;
+    }
+
+    .content-box{
+        width:92%;
+    }
+}
+/* =========================
+   GLOBAL RESET (SRH STYLE BASE)
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body.srh-body{
+    background:#fff8f2;
+    color:#222;
+    line-height:1.6;
+}
+
+/* =========================
+   HERO SECTION (SRH THEME)
+========================= */
+
+.srh-hero{
+    background:linear-gradient(135deg,#ff6f00,#111111);
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+}
+
+.srh-hero h1{
+    font-size:3rem;
+    margin-top:15px;
+    color:#ffd54f;
+}
+
+.srh-hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.main-logo{
+    width:180px;
+    border-radius:12px;
+}
+
+/* =========================
+   TEAM IMAGE
+========================= */
+
+.team-photo{
+    width:100%;
+    max-height:450px;
+    object-fit:contain;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.content-box{
+    background:white;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    width:85%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #ff6f00;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,h2{
+    color:#ff6f00;
+}
+
+h2{
+    position:relative;
+    margin-bottom:15px;
+}
+
+h2::after{
+    content:"";
+    width:60px;
+    height:4px;
+    background:#ffd54f;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    border-radius:5px;
+}
+
+/* =========================
+   CAPTAIN IMAGE
+========================= */
+
+.captain-img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin-top:10px;
+}
+
+/* =========================
+   TROPHY GRID
+========================= */
+
+.trophy-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.trophy-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.trophy-card:hover{
+    transform:translateY(-10px);
+}
+
+.trophy-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.trophy-card h3{
+    color:#ff6f00;
+    padding:10px;
+}
+
+/* =========================
+   PLAYERS GRID
+========================= */
+
+.players-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.player-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    border-bottom:4px solid #ff6f00;
+}
+
+.player-card:hover{
+    transform:translateY(-10px);
+}
+
+.player-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:top;
+}
+
+.player-card h3{
+    margin-top:10px;
+    color:#ff6f00;
+}
+
+.player-card p{
+    color:#555;
+    padding-bottom:15px;
+}
+
+/* =========================
+   RECORDS SECTION
+========================= */
+
+.records-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.record-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.record-card:hover{
+    transform:translateY(-5px);
+}
+
+.record-card h3{
+    color:#ff6f00;
+    margin-bottom:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#111111;
+    color:#ffd54f;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+.footer h2{
+    color:#ff8c00;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .srh-hero h1{
+        font-size:2rem;
+    }
+
+    .content-box{
+        width:92%;
+    }
+
+    .captain-img{
+        width:100%;
+        max-width:300px;
+    }
+}
+/* =========================
+   GLOBAL RESET (DC STYLE BASE)
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body.dc-body{
+    background:#f4f8ff;   /* Light DC Blue Background */
+    color:#222;
+    line-height:1.6;
+}
+
+/* =========================
+   HERO SECTION (DC THEME)
+========================= */
+
+.dc-hero{
+    background:linear-gradient(135deg,#004ba0,#e53935);
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+}
+
+.dc-hero h1{
+    font-size:3rem;
+    margin-top:15px;
+    color:#ffffff;
+}
+
+.dc-hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.main-logo{
+    width:180px;
+    border-radius:12px;
+}
+
+/* =========================
+   TEAM IMAGE
+========================= */
+
+.team-photo{
+    width:100%;
+    max-height:450px;
+    object-fit:contain;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.content-box{
+    background:white;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    width:85%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #004ba0;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,h2{
+    color:#004ba0;
+}
+
+h2{
+    position:relative;
+    margin-bottom:15px;
+}
+
+h2::after{
+    content:"";
+    width:60px;
+    height:4px;
+    background:#e53935;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    border-radius:5px;
+}
+
+/* =========================
+   CAPTAIN IMAGE
+========================= */
+
+.captain-img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin-top:10px;
+}
+
+/* =========================
+   TROPHY GRID
+========================= */
+
+.trophy-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.trophy-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.trophy-card:hover{
+    transform:translateY(-10px);
+}
+
+.trophy-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.trophy-card h3{
+    color:#004ba0;
+    padding:10px;
+}
+
+/* =========================
+   PLAYERS GRID
+========================= */
+
+.players-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.player-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    border-bottom:4px solid #004ba0;
+}
+
+.player-card:hover{
+    transform:translateY(-10px);
+}
+
+.player-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:top;
+}
+
+.player-card h3{
+    margin-top:10px;
+    color:#004ba0;
+}
+
+.player-card p{
+    color:#555;
+    padding-bottom:15px;
+}
+
+/* =========================
+   RECORDS SECTION
+========================= */
+
+.records-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.record-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.record-card:hover{
+    transform:translateY(-5px);
+}
+
+.record-card h3{
+    color:#004ba0;
+    margin-bottom:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#004ba0;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+.footer h2{
+    color:#ff5252;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .dc-hero h1{
+        font-size:2rem;
+    }
+
+    .content-box{
+        width:92%;
+    }
+
+    .captain-img{
+        width:100%;
+        max-width:300px;
+    }
+}
+/* =========================
+   GLOBAL RESET (GT STYLE BASE)
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body.gt-body{
+    background:#f5f8ff;
+    color:#222;
+    line-height:1.6;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.gt-hero{
+    background:linear-gradient(135deg,#0d1b4c,#1c4fd7);
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+}
+
+.gt-hero h1{
+    font-size:3rem;
+    margin-top:15px;
+    color:#d4af37;
+}
+
+.gt-hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.main-logo{
+    width:180px;
+    border-radius:12px;
+}
+
+/* =========================
+   TEAM IMAGE
+========================= */
+
+.team-image-section{
+    width:85%;
+    margin:30px auto;
+}
+
+.team-photo{
+    width:100%;
+    max-height:450px;
+    object-fit:contain;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.content-box{
+    background:white;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    width:85%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #1c4fd7;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,h2{
+    color:#1c4fd7;
+}
+
+h2{
+    position:relative;
+    margin-bottom:15px;
+}
+
+h2::after{
+    content:"";
+    width:60px;
+    height:4px;
+    background:#d4af37;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    border-radius:5px;
+}
+
+/* =========================
+   CAPTAIN IMAGE
+========================= */
+
+.captain-img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin-top:10px;
+}
+
+/* =========================
+   TROPHY GRID
+========================= */
+
+.trophy-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.trophy-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.trophy-card:hover{
+    transform:translateY(-10px);
+}
+
+.trophy-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.trophy-card h3{
+    color:#1c4fd7;
+    padding:10px;
+}
+
+/* =========================
+   PLAYERS GRID
+========================= */
+
+.players-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.player-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    border-bottom:4px solid #1c4fd7;
+}
+
+.player-card:hover{
+    transform:translateY(-10px);
+}
+
+.player-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:top;
+}
+
+.player-card h3{
+    margin-top:10px;
+    color:#1c4fd7;
+}
+
+.player-card p{
+    color:#555;
+    padding-bottom:15px;
+}
+
+/* =========================
+   RECORDS SECTION
+========================= */
+
+.records-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.record-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.record-card:hover{
+    transform:translateY(-5px);
+}
+
+.record-card h3{
+    color:#1c4fd7;
+    margin-bottom:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#0d1b4c;
+    color:#d4af37;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+.footer h2{
+    color:#ffffff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .gt-hero h1{
+        font-size:2rem;
+    }
+
+    .content-box{
+        width:92%;
+    }
+
+    .captain-img{
+        width:100%;
+        max-width:300px;
+    }
+
+    .team-image-section{
+        width:92%;
+    }
+}
+/* =========================
+   GLOBAL RESET (RR STYLE BASE)
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body.rr-body{
+    background:#fff5fa;   /* Light RR Pink */
+    color:#222;
+    line-height:1.6;
+}
+
+/* =========================
+   HERO SECTION (RR THEME)
+========================= */
+
+.rr-hero{
+    background:linear-gradient(135deg,#1b1464,#ff4fa3);
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+}
+
+.rr-hero h1{
+    font-size:3rem;
+    margin-top:15px;
+    color:#ffffff;
+}
+
+.rr-hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.main-logo{
+    width:180px;
+    border-radius:12px;
+}
+
+/* =========================
+   TEAM IMAGE
+========================= */
+
+.team-image-section{
+    width:85%;
+    margin:30px auto;
+}
+
+.team-photo{
+    width:100%;
+    max-height:450px;
+    object-fit:contain;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.content-box{
+    background:white;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    width:85%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #ff4fa3;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,h2{
+    color:#1b1464;
+}
+
+h2{
+    position:relative;
+    margin-bottom:15px;
+}
+
+h2::after{
+    content:"";
+    width:60px;
+    height:4px;
+    background:#ff4fa3;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    border-radius:5px;
+}
+
+/* =========================
+   CAPTAIN IMAGE
+========================= */
+
+.captain-img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin-top:10px;
+}
+
+/* =========================
+   TROPHY GRID
+========================= */
+
+.trophy-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.trophy-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.trophy-card:hover{
+    transform:translateY(-10px);
+}
+
+.trophy-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.trophy-card h3{
+    color:#1b1464;
+    padding:10px;
+}
+
+/* =========================
+   PLAYERS GRID
+========================= */
+
+.players-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.player-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    border-bottom:4px solid #ff4fa3;
+}
+
+.player-card:hover{
+    transform:translateY(-10px);
+}
+
+.player-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:top;
+}
+
+.player-card h3{
+    margin-top:10px;
+    color:#1b1464;
+}
+
+.player-card p{
+    color:#555;
+    padding-bottom:15px;
+}
+
+/* =========================
+   RECORDS SECTION
+========================= */
+
+.records-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.record-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.record-card:hover{
+    transform:translateY(-5px);
+}
+
+.record-card h3{
+    color:#1b1464;
+    margin-bottom:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#1b1464;
+    color:#ff4fa3;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+.footer h2{
+    color:#ffffff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .rr-hero h1{
+        font-size:2rem;
+    }
+
+    .content-box{
+        width:92%;
+    }
+
+    .captain-img{
+        width:100%;
+        max-width:300px;
+    }
+
+    .team-image-section{
+        width:92%;
+    }
+}
+/* =========================
+   GLOBAL RESET (PBKS STYLE BASE)
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body.pbks-body{
+    background:#fff7f7;
+    color:#222;
+    line-height:1.6;
+}
+
+/* =========================
+   HERO SECTION (PBKS THEME)
+========================= */
+
+.pbks-hero{
+    background:linear-gradient(135deg,#d71920,#222222);
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+}
+
+.pbks-hero h1{
+    font-size:3rem;
+    margin-top:15px;
+    color:#ffffff;
+}
+
+.pbks-hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.main-logo{
+    width:180px;
+    border-radius:12px;
+}
+
+/* =========================
+   TEAM IMAGE
+========================= */
+
+.team-image-section{
+    width:85%;
+    margin:30px auto;
+}
+
+.team-photo{
+    width:100%;
+    max-height:450px;
+    object-fit:contain;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.content-box{
+    background:white;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    width:85%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #d71920;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,h2{
+    color:#d71920;
+}
+
+h2{
+    position:relative;
+    margin-bottom:15px;
+}
+
+h2::after{
+    content:"";
+    width:60px;
+    height:4px;
+    background:#222222;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    border-radius:5px;
+}
+
+/* =========================
+   CAPTAIN IMAGE
+========================= */
+
+.captain-img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin-top:10px;
+}
+
+/* =========================
+   TROPHY GRID
+========================= */
+
+.trophy-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.trophy-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.trophy-card:hover{
+    transform:translateY(-10px);
+}
+
+.trophy-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.trophy-card h3{
+    color:#d71920;
+    padding:10px;
+}
+
+/* =========================
+   PLAYERS GRID
+========================= */
+
+.players-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.player-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    border-bottom:4px solid #d71920;
+}
+
+.player-card:hover{
+    transform:translateY(-10px);
+}
+
+.player-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:top;
+}
+
+.player-card h3{
+    margin-top:10px;
+    color:#d71920;
+}
+
+.player-card p{
+    color:#555;
+    padding-bottom:15px;
+}
+
+/* =========================
+   RECORDS GRID
+========================= */
+
+.records-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.record-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.record-card:hover{
+    transform:translateY(-5px);
+}
+
+.record-card h3{
+    color:#d71920;
+    margin-bottom:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#222222;
+    color:#ffffff;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+.footer h2{
+    color:#d71920;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .pbks-hero h1{
+        font-size:2rem;
+    }
+
+    .content-box{
+        width:92%;
+    }
+
+    .captain-img{
+        width:100%;
+        max-width:300px;
+    }
+
+    .team-image-section{
+        width:92%;
+    }
+}
+/* =========================
+   GLOBAL RESET (LSG STYLE BASE)
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body.lsg-body{
+    background:#f4fbff;
+    color:#222;
+    line-height:1.6;
+}
+
+/* =========================
+   HERO SECTION (LSG THEME)
+========================= */
+
+.lsg-hero{
+    background:linear-gradient(135deg,#00AEEF,#F7941D);
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+}
+
+.lsg-hero h1{
+    font-size:3rem;
+    margin-top:15px;
+    color:#ffffff;
+}
+
+.lsg-hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.main-logo{
+    width:180px;
+    border-radius:12px;
+}
+
+/* =========================
+   TEAM IMAGE
+========================= */
+
+.team-image-section{
+    width:85%;
+    margin:30px auto;
+}
+
+.team-photo{
+    width:100%;
+    max-height:450px;
+    object-fit:contain;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.content-box{
+    background:white;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    width:85%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #00AEEF;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,h2{
+    color:#00AEEF;
+}
+
+h2{
+    position:relative;
+    margin-bottom:15px;
+}
+
+h2::after{
+    content:"";
+    width:60px;
+    height:4px;
+    background:#F7941D;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    border-radius:5px;
+}
+
+/* =========================
+   CAPTAIN IMAGE
+========================= */
+
+.captain-img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin-top:10px;
+}
+
+/* =========================
+   TROPHY GRID
+========================= */
+
+.trophy-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.trophy-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.trophy-card:hover{
+    transform:translateY(-10px);
+}
+
+.trophy-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.trophy-card h3{
+    color:#00AEEF;
+    padding:10px;
+}
+
+/* =========================
+   PLAYERS GRID
+========================= */
+
+.players-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.player-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    border-bottom:4px solid #00AEEF;
+}
+
+.player-card:hover{
+    transform:translateY(-10px);
+}
+
+.player-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:top;
+}
+
+.player-card h3{
+    margin-top:10px;
+    color:#00AEEF;
+}
+
+.player-card p{
+    color:#555;
+    padding-bottom:15px;
+}
+
+/* =========================
+   RECORDS GRID
+========================= */
+
+.records-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.record-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.record-card:hover{
+    transform:translateY(-5px);
+}
+
+.record-card h3{
+    color:#00AEEF;
+    margin-bottom:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#00AEEF;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+.footer h2{
+    color:#F7941D;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .lsg-hero h1{
+        font-size:2rem;
+    }
+
+    .content-box{
+        width:92%;
+    }
+
+    .captain-img{
+        width:100%;
+        max-width:300px;
+    }
+
+    .team-image-section{
+        width:92%;
+    }
+}
+/* =========================
+   GLOBAL RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body.rcb-body{
+    background:#fff7f7;
+    color:#222;
+    line-height:1.6;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.rcb-hero{
+    background:linear-gradient(135deg,#8B0000,#000000);
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+}
+
+.rcb-hero h1{
+    font-size:3rem;
+    margin-top:15px;
+    color:#FFD700;
+}
+
+.rcb-hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.main-logo{
+    width:180px;
+    border-radius:12px;
+}
+
+/* =========================
+   TEAM IMAGE
+========================= */
+
+.team-image-section{
+    width:85%;
+    margin:30px auto;
+}
+
+.team-photo{
+    width:100%;
+    max-height:450px;
+    object-fit:contain;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.content-box{
+    background:white;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    width:85%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #8B0000;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,h2{
+    color:#8B0000;
+}
+
+h2{
+    position:relative;
+    margin-bottom:15px;
+}
+
+h2::after{
+    content:"";
+    width:60px;
+    height:4px;
+    background:#FFD700;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    border-radius:5px;
+}
+
+/* =========================
+   CAPTAIN IMAGE
+========================= */
+
+.captain-img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin-top:10px;
+}
+
+/* =========================
+   TROPHY GRID
+========================= */
+
+.trophy-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.trophy-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.trophy-card:hover{
+    transform:translateY(-10px);
+}
+
+.trophy-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.trophy-card h3{
+    color:#8B0000;
+    padding:10px;
+}
+
+/* =========================
+   PLAYERS GRID
+========================= */
+
+.players-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.player-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    border-bottom:4px solid #FFD700;
+}
+
+.player-card:hover{
+    transform:translateY(-10px);
+}
+
+.player-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:top;
+}
+
+.player-card h3{
+    margin-top:10px;
+    color:#8B0000;
+}
+
+.player-card p{
+    color:#555;
+    padding-bottom:15px;
+}
+
+/* =========================
+   RECORDS GRID
+========================= */
+
+.records-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.record-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.record-card h3{
+    color:#8B0000;
+    margin-bottom:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#000000;
+    color:#FFD700;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+.footer h2{
+    color:#FFD700;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .rcb-hero h1{
+        font-size:2rem;
+    }
+
+    .content-box{
+        width:92%;
+    }
+
+    .captain-img{
+        width:100%;
+        max-width:300px;
+    }
+
+    .team-image-section{
+        width:92%;
+    }
+}
